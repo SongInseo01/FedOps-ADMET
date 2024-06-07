@@ -1,0 +1,7 @@
+[2024-06-07 10:02:04,517][root][ERROR] - No read global model
+[2024-06-07 10:02:04,517][root][INFO] - gl_model: None, gl_model_v: 0
+[2024-06-07 10:02:04,526][root][INFO] - last_gl_model_v: 0
+[2024-06-07 10:02:04,526][root][INFO] - init global model making
+[2024-06-07 10:02:04,531][flwr][INFO] - Starting Flower server, config: num_rounds=5, no round_timeout
+[2024-06-07 10:02:04,549][root][INFO] - server close
+[2024-06-07 10:02:04,554][root][INFO] - global model version upgrade

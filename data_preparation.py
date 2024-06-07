@@ -31,6 +31,9 @@ class PlusHIVData(Dataset):
         self.graphs = np.array([Graph(smiles) for smiles in self.smiles])
         self.size = self.graphs.shape[0]
 
+    def __len__(self):
+        return self.size
+
     @classmethod
     def train_iterator(cls, data, feature, target, batch_size):
         pointer = 0
@@ -75,6 +78,7 @@ class PlusHIVData(Dataset):
         batch_activity = torch.from_numpy(self.activity[sample_index]).type(torch.long)
         self._pointer += self.batch_size
         return (batch_graphs, batch_features), batch_activity
+
 
 
 """
