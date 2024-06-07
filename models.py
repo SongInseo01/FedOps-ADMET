@@ -67,7 +67,7 @@ class FeatureRNN(nn.Module):
 
 # Define your custom Model    
 class PlusHIVNet(nn.Module):
-    def __init__(self, atom_msg=125, bond_msg=12, inner_hidden_size=125, feature_size=40, hidden_size=100):
+    def __init__(self, atom_msg=125, bond_msg=12, inner_hidden_size=125, feature_size=40, hidden_size=100, output_size=40):
         super(PlusHIVNet, self).__init__()
         self.feature_net = FeatureRNN(atom_msg, bond_msg, inner_hidden_size, feature_size)
         self.net = nn.Sequential(nn.Linear(feature_size + 196, hidden_size),
@@ -77,6 +77,7 @@ class PlusHIVNet(nn.Module):
         self.descriptors = [desc[0] for desc in Descriptors._descList if not (
                 desc[0] in ['MaxPartialCharge', 'MinPartialCharge', 'MaxAbsPartialCharge', 'MinAbsPartialCharge'])]
         self.desc_calc = MoleculeDescriptors.MolecularDescriptorCalculator(self.descriptors)
+
 
     def forward(self, data_bunch):
         graphs, plus_features = data_bunch

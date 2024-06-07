@@ -5,8 +5,12 @@ learning_rate: 0.001 # Input model's learning rate
 
 model_type: 'Pytorch' # This value should be maintained
 model:
-  _target_: models.PlusHIVNet # Input your custom model
-  output_size: 40 # Input your model's output size (only classification)
+  _target_: models.PlusHIVNet
+  atom_msg: 125  # 추가로 필요한 인수들
+  bond_msg: 12
+  inner_hidden_size: 125
+  feature_size: 40
+  hidden_size: 100
 
 dataset:
     name: 'plus_hiv_train' # Input your data name
