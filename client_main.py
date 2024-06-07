@@ -10,6 +10,7 @@ from fedops.client import client_utils
 from fedops.client.app import FLClientTask
 import logging
 from omegaconf import DictConfig, OmegaConf
+from collections import Counter
     
     
 @hydra.main(config_path="./conf", config_name="config", version_base=None)
@@ -69,7 +70,8 @@ def main(cfg: DictConfig) -> None:
         "model" : model,
         "model_name" : model_name,
         "train_torch" : train_torch,
-        "test_torch" : test_torch
+        "test_torch" : test_torch,
+        "y_label_counter": Counter(),
     }
     
     
