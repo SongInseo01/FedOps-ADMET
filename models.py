@@ -78,7 +78,6 @@ class PlusHIVNet(nn.Module):
                 desc[0] in ['MaxPartialCharge', 'MinPartialCharge', 'MaxAbsPartialCharge', 'MinAbsPartialCharge'])]
         self.desc_calc = MoleculeDescriptors.MolecularDescriptorCalculator(self.descriptors)
 
-
     def forward(self, data_bunch):
         graphs, plus_features = data_bunch
         features = self.feature_net(graphs)
@@ -93,6 +92,7 @@ class PlusHIVNet(nn.Module):
 
     def predict_class(self, smile_es):
         return self.predict(smile_es).argmax(dim=1)
+
 
 # Set the torch train & test
 # torch train
