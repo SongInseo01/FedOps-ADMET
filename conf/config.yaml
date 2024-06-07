@@ -11,6 +11,7 @@ model:
   inner_hidden_size: 125
   feature_size: 40
   hidden_size: 100
+  output_size: 40
 
 dataset:
     name: 'plus_hiv_train' # Input your data name
