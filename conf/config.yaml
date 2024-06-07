@@ -5,27 +5,27 @@ learning_rate: 0.001 # Input model's learning rate
 
 model_type: 'Pytorch' # This value should be maintained
 model:
-  _target_: model name # Input your custom model
-  output_size: 10 # Input your model's output size (only classification)
+  _target_: models.PlusHIVNet # Input your custom model
+  output_size: 40 # Input your model's output size (only classification)
 
 dataset:
-    name: 'dataset name' # Input your data name
+    name: 'plus_hiv_train' # Input your data name
     validation_split: 0.2 # Ratio of dividing train data by validation
 
 # client
-task_id: 'podname' # Input your Task Name that you register in FedOps Website
+task_id: 'admet' # Input your Task Name that you register in FedOps Website
 
 wandb: 
-  use: false # Whether to use wandb
-  key: 'your wandb api key' # Input your wandb api key
-  account: 'your wandb account' # Input your wandb account
+  use: true # Whether to use wandb
+  key: ce53e10675102394f9c8ac9f89c76bcbf14ea805 # Input your wandb api key
+  account: z8086486 # Input your wandb account
   project: '${dataset.name}_${task_id}'
 
 
 # server
-num_epochs: 1 # number of local epochs
-batch_size: 128
-num_rounds: 2 # Number of rounds to perform
+num_epochs: 5 # number of local epochs
+batch_size: 64
+num_rounds: 5 # Number of rounds to perform
 clients_per_round: 1 # Number of clients participating in the round
 
 server:
