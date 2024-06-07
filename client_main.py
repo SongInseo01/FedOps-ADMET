@@ -11,6 +11,14 @@ from fedops.client.app import FLClientTask
 import logging
 from omegaconf import DictConfig, OmegaConf
 from collections import Counter
+
+def custom_collate_fn(batch):
+    batch_graphs, batch_features, batch_activity = [], [], []
+    for (graphs, features), activity in batch:
+        batch_graphs.append(graphs)
+        batch_features.append(features)
+        batch_activity.append(activity)
+    return (batch_graphs, torch.stack(batch_features)), torch.stack(batch_activity)
     
     
 @hydra.main(config_path="./conf", config_name="config", version_base=None)
