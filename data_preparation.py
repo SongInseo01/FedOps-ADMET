@@ -34,6 +34,14 @@ class PlusHIVData(Dataset):
     def __len__(self):
         return self.size
 
+    def __getitem__(self, idx):
+        if torch.is_tensor(idx):
+            idx = idx.tolist()
+        graph = self.graphs[idx]
+        feature = torch.from_numpy(self.features[idx]).type(torch.float32)
+        activity = torch.from_numpy(self.activity[idx]).type(torch.long)
+        return (graph, feature), activity
+
     @classmethod
     def train_iterator(cls, data, feature, target, batch_size):
         pointer = 0
@@ -78,6 +86,7 @@ class PlusHIVData(Dataset):
         batch_activity = torch.from_numpy(self.activity[sample_index]).type(torch.long)
         self._pointer += self.batch_size
         return (batch_graphs, batch_features), batch_activity
+
 
 
 
