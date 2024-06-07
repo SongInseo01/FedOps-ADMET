@@ -1,0 +1,70 @@
+wandb_version: 1
+
+learning_rate:
+  desc: null
+  value: 0
+optimizer:
+  desc: null
+  value: ''
+dataset:
+  desc: null
+  value: ''
+model_architecture:
+  desc: null
+  value: ''
+batch_size:
+  desc: null
+  value: 64
+epochs:
+  desc: null
+  value: 5
+num_rounds:
+  desc: null
+  value: 5
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.5
+    cli_version: 0.15.12
+    framework: huggingface
+    huggingface_version: 4.39.1
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1717729556.083609
+    t:
+      1:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 11
+      - 30
+      - 41
+      - 49
+      - 50
+      - 53
+      - 55
+      - 105
+      2:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 11
+      - 30
+      - 41
+      - 49
+      - 50
+      - 53
+      - 55
+      - 105
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.11.5
+      5: 0.15.12
+      6: 4.39.1
+      8:
+      - 5
+      13: linux-x86_64

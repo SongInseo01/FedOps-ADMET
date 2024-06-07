@@ -1,0 +1,62 @@
+[2024-06-07 11:59:52,749][__main__][INFO] - data loaded
+[2024-06-07 11:59:52,751][root][INFO] - init model_type: Pytorch
+[2024-06-07 12:05:54,472][root][INFO] - bulid model
+[2024-06-07 12:05:54,472][root][INFO] - FL start
+[2024-06-07 12:05:54,482][fedops.client.client_api][INFO] - FL_server_IP:port - ccl.gachon.ac.kr:40021
+[2024-06-07 12:05:54,483][root][INFO] - FL learning ready
+[2024-06-07 12:05:54,483][root][INFO] - fl_task_id: admet
+[2024-06-07 12:05:54,483][root][INFO] - dataset: plus_hiv_train
+[2024-06-07 12:05:54,483][root][INFO] - output_size: 40
+[2024-06-07 12:05:54,483][root][INFO] - validation_split: 0.2
+[2024-06-07 12:05:54,484][root][INFO] - model_type: Pytorch
+[2024-06-07 12:05:54,484][root][INFO] - wandb_key: ce53e10675102394f9c8ac9f89c76bcbf14ea805
+[2024-06-07 12:05:54,484][root][INFO] - wandb_account: z8086486
+[2024-06-07 12:06:09,184][root][INFO] - label_values: [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0], [7, 0], [8, 0], [9, 0], [10, 0], [11, 0], [12, 0], [13, 0], [14, 0], [15, 0], [16, 0], [17, 0], [18, 0], [19, 0], [20, 0], [21, 0], [22, 0], [23, 0], [24, 0], [25, 0], [26, 0], [27, 0], [28, 0], [29, 0], [30, 0], [31, 0], [32, 0], [33, 0], [34, 0], [35, 0], [36, 0], [37, 0], [38, 0], [39, 0]]
+[2024-06-07 12:06:09,184][flwr][WARNING] - DEPRECATED FEATURE: flwr.client.start_numpy_client() is deprecated. 
+	Instead, use `flwr.client.start_client()` by ensuring you first call the `.to_client()` method as shown below: 
+	flwr.client.start_client(
+		server_address='<IP>:<PORT>',
+		client=FlowerClient().to_client(), # <-- where FlowerClient is of type flwr.client.NumPyClient object
+	)
+	Using `start_numpy_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2024-06-07 12:06:09,197][flwr][DEBUG] - Opened insecure gRPC connection (no certificates were passed)
+[2024-06-07 12:06:09,200][flwr][DEBUG] - ChannelConnectivity.IDLE
+[2024-06-07 12:06:09,201][flwr][DEBUG] - ChannelConnectivity.CONNECTING
+[2024-06-07 12:06:09,214][flwr][DEBUG] - ChannelConnectivity.READY
+[2024-06-07 12:30:22,653][flwr][INFO] - 
+[2024-06-07 12:30:22,653][flwr][INFO] - [RUN 0, ROUND ]
+[2024-06-07 12:30:22,653][flwr][INFO] - Received: train message ccad96fb-03e9-4952-9fb6-b0942b6f844b
+[2024-06-07 12:30:22,656][flwr][ERROR] - Client raised an exception.
+Traceback (most recent call last):
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/flwr/client/app.py", line 496, in _start_client_internal
+    reply_message = client_app(message=message, context=context)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/flwr/client/client_app.py", line 98, in __call__
+    return self._call(message, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/flwr/client/client_app.py", line 81, in ffn
+    out_message = handle_legacy_message_from_msgtype(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/flwr/client/message_handler/message_handler.py", line 130, in handle_legacy_message_from_msgtype
+    fit_res = maybe_call_fit(
+              ^^^^^^^^^^^^^^^
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/flwr/client/client.py", line 234, in maybe_call_fit
+    return client.fit(fit_ins)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/flwr/client/numpy_client.py", line 238, in _fit
+    results = self.numpy_client.fit(parameters, ins.config)  # type: ignore
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ccl/anaconda3/envs/isenv/lib/python3.11/site-packages/fedops/client/client_fl.py", line 135, in fit
+    trained_model = self.train_torch(self.model, self.train_loader, self.val_loader, epochs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ccl/Desktop/isfolder/issrc/fedops/FedOps-ADMET/models.py", line 106, in custom_train_torch
+    optimizer = optim.Adam(model.parameters(), lr=cfg["lr"])
+                                                  ~~~^^^^^^
+TypeError: 'int' object is not subscriptable
+[2024-06-07 12:30:22,661][flwr][DEBUG] - gRPC channel closed
+[2024-06-07 12:30:22,673][root][INFO] - notify_fail start
+[2024-06-07 12:30:22,689][root][ERROR] - trainFin

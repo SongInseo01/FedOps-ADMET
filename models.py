@@ -103,7 +103,7 @@ def train_torch():
         Model must be the return value.
         """
         model.train()
-        optimizer = optim.Adam(model.parameters(), lr=cfg["lr"])
+        optimizer = optim.Adam(model.parameters(), lr=0.001)
         loss_fn = nn.NLLLoss(weight=torch.Tensor([0.02, 0.98]))
         
         for epoch in range(epochs):
